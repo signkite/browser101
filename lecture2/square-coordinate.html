@@ -1,0 +1,71 @@
+<!-- 10개의 정사각형 중 색이 다른 정사각형을 클릭하면
+해당 정사각형의 client x, y와 page x, y 좌표가 콘솔에 출력된다.
+스크롤 조작 실습 포함.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: black;
+    }
+    .square {
+      width: 150px;
+      height: 150px;
+      margin: 10px;
+      background-color: antiquewhite;
+    }
+    .target-square {
+      width: 150px;
+      height: 150px;
+      margin: 10px;
+      background-color: aquamarine;
+    }
+    .btn-container {
+      display: flex;
+      position: fixed;
+      top: 30px;
+      right: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="target-square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="square"></div>
+  <div class="btn-container">
+    <button onClick="scrollByBtn()">Scroll by 100px (y)</button>
+    <button onclick="scrollToBtn()">Scroll to 100px (y)</button>
+    <button onClick="scrollTargetBtn()">Scroll to target</button>
+  </div>
+  <script>
+    const targetSquare = document.querySelector('.target-square');
+    const clientRect = targetSquare.getBoundingClientRect();
+    targetSquare.addEventListener('click', () => {
+      console.log(`client x, y = (${clientRect.left}, ${clientRect.top})`);
+      console.log(`page x, y = (${clientRect.left + window.pageXOffset}, ${clientRect.top + window.pageYOffset})`);
+    })
+
+    function scrollByBtn() {
+      window.scrollBy(0, 100);
+    }
+    function scrollToBtn() {
+      window.scrollTo(0, 100);
+    }
+    function scrollTargetBtn() {
+      window.scrollTo(clientRect.left + window.pageXOffset, clientRect.top + window.pageYOffset);
+    }
+  </script>
+</body>
+</html>
