@@ -1,11 +1,67 @@
+<!-- 화면의 마우스 움직임에 따라 좌표와 위치를 멋있게 보여주는 페이지 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href="
+https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css
+" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: black;
+    }
+    .h-line {
+      position: absolute;
+      width: 100vw;
+      height: 1px;
+      background-color: gray;
+    }
+    .v-line {
+      position: absolute;
+      width: 1px;
+      height: 100vw;
+      background-color: gray;
+    }
+    img {
+      width: 120px;
+      height: 120px;
+      position: absolute;
+    }
+    span {
+      position: absolute;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  
+  <div class="h-line"></div>
+  <div class="v-line"></div>
+  <img src="./images/target.png" alt="target"/>
+  <span class="coordinates"></span>
+  <script>
+    const targetImg = document.querySelector('img');
+    const hLine = document.querySelector('.h-line');
+    const vLine = document.querySelector('.v-line');
+    const coordinates = document.querySelector('.coordinates');
+
+    const imgWidth = targetImg.offsetWidth;
+    const imgHeight = targetImg.offsetHeight;
+
+    function onMousemove (event) {
+      hLine.style.top = event.clientY + 'px';
+      vLine.style.left = event.clientX + 'px';
+      targetImg.style.top = (event.clientY - imgHeight / 2) + 'px' ;
+      targetImg.style.left = (event.clientX - imgWidth / 2) + 'px';
+      coordinates.innerHTML = `${event.clientX} ${event.clientY}`;
+      coordinates.style.top = (event.clientY + 24) + 'px' ;
+      coordinates.style.left = (event.clientX + 24) + 'px';
+    }
+    window.addEventListener('mousemove', onMousemove);
+    
+  </script>
 </body>
 </html>
