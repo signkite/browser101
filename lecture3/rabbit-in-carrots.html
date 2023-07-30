@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="
+https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css
+" rel="stylesheet">
+  <style>
+    body {
+      background-color: black;
+      text-align: center;
+      padding-top: 30px;
+    }
+    button {
+      width: 200px;
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+    img {
+      margin: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <button onClick="btnOnClick()">find rabbit 🐇</button>
+  <img src="./images/carrot.png" alt="carrot"/>
+  <img src="./images/carrot.png" alt="carrot"/>
+  <img src="./images/carrot.png" alt="carrot"/>
+  <img src="./images/carrot.png" alt="carrot"/>
+  <img src="./images/carrot.png" alt="carrot"/>
+  <img src="./images/rabbit.png" class="rabbit" alt="rabbit"/>
+  <img src="./images/carrot.png" alt="carrot"/>
+  <img src="./images/carrot.png" alt="carrot"/>
+  <img src="./images/carrot.png" alt="carrot"/>
+  <img src="./images/carrot.png" alt="carrot"/>
+  <script>
+    const rabbitElement = document.querySelector('.rabbit');
+    const btnOnClick = (event) => {
+      const boundingRect = rabbitElement.getBoundingClientRect();
+      window.scrollTo({'top': boundingRect.top - window.innerWidth / 4,  behavior: 'smooth'});
+    }
+  </script>
+</body>
+</html>
