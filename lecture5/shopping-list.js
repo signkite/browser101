@@ -7,23 +7,18 @@ buttomElement.addEventListener('click', () => {
   const itemName = document.createElement('div');
   const delButton = document.createElement('button');
 
-  listItem.style.cssText = `
-    display: flex;
-    width: 100%;
-    height: 30px;
-  `;
-
-  itemName.style.cssText = `
-    flex-grow: 1;
-  `
+  itemName.classList.add('list-name');
 
   itemName.innerHTML = inputElement.value;
   delButton.innerHTML = '삭제'
 
+  delButton.addEventListener('click', () => {
+    ulElement.removeChild(listItem);
+  })
+
   listItem.appendChild(itemName);
   listItem.appendChild(delButton);
-
   ulElement.appendChild(listItem);
-  console.log(inputVal);
+
   inputElement.value = '';
 })
