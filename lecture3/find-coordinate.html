@@ -65,6 +65,7 @@ https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css
 
       // top, left 속성은 layout -> paint -> composition 과정을 모두 거치므로 비용이 매우 크다.
       // composition 만 새로 일어나도 되는 transform 속성을 사용하도록 코드를 변경해본다.
+      // 개발자 도구의 performance 탭을 가면 아주 자세하게 성능을 측정 가능
 
       // 리팩토링 후 코드
       const x = event.clientX;
