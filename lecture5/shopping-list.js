@@ -22,3 +22,10 @@ buttomElement.addEventListener('click', () => {
 
   inputElement.value = '';
 })
+
+// todo
+// 자동으로 input focus 되도록
+// 그림자 추가
+// input에 엔터키 누르면 추가되도록
+// input에 아무것도 없으면 추가되지 않도록
+// 사용자가 많이 입력하면 자동으로 아래로 스크롤
