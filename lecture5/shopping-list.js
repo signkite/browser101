@@ -35,7 +35,3 @@ inputElement.addEventListener('keypress', (event) => {
 buttomElement.addEventListener('click', () => {
   addItem();
 })
-
-// todo
-// input에 아무것도 없으면 추가되지 않도록
-// 사용자가 많이 입력하면 자동으로 아래로 스크롤
